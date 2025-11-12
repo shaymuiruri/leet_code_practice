@@ -1,0 +1,18 @@
+class Solution(object):
+    def waterbottles(self, numBottles, numExchange):
+        totalDrank = numBottles
+        emptyBottles = numBottles
+
+        while emptyBottles >= numExchange:
+            newBottles = emptyBottles // numExchange
+            totalDrank += newBottles
+            emptyBottles = emptyBottles % numExchange + newBottles
+
+        return totalDrank
+    
+if __name__ == "__main__":
+    numBottles = int(input("Enter the number of bottles: "))
+    numExchange = int(input("Enter the number of bottles needed for exchange: "))
+    solution = Solution()
+    result = solution.waterbottles(numBottles, numExchange)
+    print("Total bottles drank:", result)
